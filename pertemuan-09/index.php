@@ -2,21 +2,6 @@
 session_start();
 
 require_once __DIR__ . '/fungsi.php';
-
-$sesnama = "";
-if (isset($_SESSION["sesnama"])):
-  $sesnama = $_SESSION["sesnama"];
-endif;
-
-$sesemail = "";
-if (isset($_SESSION["sesemail"])):
-  $sesemail = $_SESSION["sesemail"];
-endif;
-
-$sespesan = "";
-if (isset($_SESSION["sespesan"])):
-  $sespesan = $_SESSION["sespesan"];
-endif;
 ?>
 
 <!DOCTYPE html>
@@ -146,6 +131,16 @@ endif;
         <button type="reset">Batal</button>
       </form>
 
+      <?php
+      $Contact = $_SESSION["Contact"] ?? [];
+
+      $fieldContact = [
+        "email" => ["label" => "Email:", "suffix" => ""],
+        "nama" => ["label" => "Nama Lengkap:", "suffix" => " &#128526;"],
+        "pesan" => ["label" => "Pesan:", "suffix" => ""],
+      ];
+      ?>
+
       <?php if (!empty($sesnama)): ?>
         <br>
         <hr>
@@ -154,7 +149,7 @@ endif;
         <p><strong>Email :</strong> <?php echo $sesemail ?></p>
         <p><strong>Pesan :</strong> <?php echo $sespesan ?></p>
       <?php endif; ?>
-      
+
     </section>
   </main>
 

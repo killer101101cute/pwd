@@ -29,4 +29,5 @@ Hai aku Nabila
   <li>menggunakan fungsi menampilkan biodata di di section#about</li>
   <li>menggunakan require_once fungsi.php</li>
   <li>membuat array buat contact</li>
+  <li>menangkap session contact di index.php</li>
 </ol>
