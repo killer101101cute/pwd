@@ -28,4 +28,5 @@ Hai aku Nabila
   <li>membuat fungsi render untuk menampilkan biodata</li>
   <li>menggunakan fungsi menampilkan biodata di di section#about</li>
   <li>menggunakan require_once fungsi.php</li>
+  <li>membuat array buat contact</li>
 </ol>
