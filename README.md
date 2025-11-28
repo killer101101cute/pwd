@@ -1,0 +1,2 @@
+# pwd
+ini aku belajar
