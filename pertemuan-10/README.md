@@ -8,4 +8,5 @@ hari ini tanggal 4 Desember 2025, saya membuat struktur dasar koneksi PHP  dan M
 <li>menambahkan file read.php</li>
 <li>modif kode read_inc.php</li>
 <li>mengubah kode dari index.php tentang read_inc.php</li>
+<li>menghapus beberapa kode di index.php karena sudah di ambil read_inc.php</li>
 </ol>
