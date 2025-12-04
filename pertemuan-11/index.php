@@ -100,13 +100,13 @@ require_once __DIR__ . '/fungsi.php';
       "pekerjaan" => ["label" => "Pekerjaan:", "suffix" => " &copy; 2025"],
       "ortu" => ["label" => "Nama Orang Tua:", "suffix" => ""],
       "kakak" => ["label" => "Nama Kakak:", "suffix" => ""],
-      "adik" => ["label" => "Nama Adik:", "suffix" => ""]
+      "adik" => ["label" => "Nama Adik:", "suffix" => ""],
     ];
     ?>
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?= tampilkan($fieldConfig, $biodata) ?>
+      <?= tampilkanBiodata($fieldConfig, $biodata) ?>
     </section>
 
     <section id="contact">
@@ -131,18 +131,19 @@ require_once __DIR__ . '/fungsi.php';
       </form>
 
       <?php
-      $Contact = $_SESSION["Contact"] ?? [];
+      $contact = $_SESSION["contact"] ?? [];
 
       $fieldContact = [
         "nama" => ["label" => "Nama:", "suffix" => ""],
         "email" => ["label" => "Email:", "suffix" => ""],
-        "pesan" => ["label" => "Pesan:", "suffix" => ""],
+        "pesan" => ["label" => "Pesan Anda:", "suffix" => ""]
       ];
       ?>
-        <br>
-        <hr>
-        <h2>Yang menghubungi kami</h2>
-       <?= tampilkan($fieldContact, $Contact) ?>
+
+      <br>
+      <hr>
+      <h2>Yang menghubungi kami</h2>
+      <?= tampilkanBiodata($fieldContact, $contact) ?>
     </section>
   </main>
 
