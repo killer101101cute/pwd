@@ -1,12 +1,6 @@
 # pertemuan-10
 Hai aku Nabila
-hari ini tanggal 4 Desember 2025, saya membuat struktur dasar koneksi PHP  dan MySQL
+hari ini tanggal 11 Desember 2025
 <ol>
-<li>menambahkan mysqli atau mySOL</li>
-<li>menginstall phpMyAdmin</li>
-<li>membuat tabel tbl_tamu di dalam database db_pwd2025</li>
-<li>menambahkan file read.php</li>
-<li>modif kode read_inc.php</li>
-<li>mengubah kode dari index.php tentang read_inc.php</li>
-<li>menghapus beberapa kode di index.php karena sudah di ambil read_inc.php</li>
+<li>update fungsi php</li>
 </ol>
