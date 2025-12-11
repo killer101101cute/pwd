@@ -109,20 +109,47 @@ require_once __DIR__ . '/fungsi.php';
       <?= tampilkanBiodata($fieldConfig, $biodata) ?>
     </section>
 
+    <?php
+    $flash_sukses = $_SESSION['flash_sukses'] ?? ''; #jika query sukses
+    $flash_error  = $_SESSION['flash_error'] ?? ''; #jika query error
+    $old          = $_SESSION['old'] ?? []; #untuk nilai lama form
+
+    unset($_SESSION['flash_sukses'], $SESSION['flash_error'], $_SESSION['old']); #bersihkan 3 session ini
+    ?>
+
     <section id="contact">
       <h2>Kontak Kami</h2>
+
+      <?php if (!empty($flash_sukses)): ?>
+        <div style="padding:10px; margin-bottom:10px; background:#d4edda; color:#3155724; border-radius:6px;">
+          <?= $flash_sukses; ?>
+      </div>
+      <?php endif; ?>
+
+      <?php if (!empty($flash_error)): ?>
+        <div style="padding:10px; margin-bottom:10px; background:#f8d7daa; color:#721c24; border-radius:6px;">
+          <?= $flash_error; ?>
+      </div>
+      <?php endif; ?>
+
       <form action="proses.php" method="POST">
 
         <label for="txtNama"><span>Nama:</span>
-          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
+          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" 
+          required autocomplete="name">
+          value="<?= isset($old['name']) ? htmlspecialchars($old['name']) : '' ?>"
+        
         </label>
 
         <label for="txtEmail"><span>Email:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email"
+          required autocomplete="email">
+          value="<?= isset($old['Email']) ? htmlspecialchars($old['Email']) : '' ?>"
         </label>
 
         <label for="txtPesan"><span>Pesan Anda:</span>
-          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
+          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..."
+          required><?= isset($old['pesan']) ? htmlspecialchars($old['pesan']) : '' ?></textarea>
           <small id="charCount">0/200 karakter</small>
         </label>
 
@@ -130,20 +157,10 @@ require_once __DIR__ . '/fungsi.php';
         <button type="reset">Batal</button>
       </form>
 
-      <?php
-      $contact = $_SESSION["contact"] ?? [];
-
-      $fieldContact = [
-        "nama" => ["label" => "Nama:", "suffix" => ""],
-        "email" => ["label" => "Email:", "suffix" => ""],
-        "pesan" => ["label" => "Pesan Anda:", "suffix" => ""]
-      ];
-      ?>
-
       <br>
       <hr>
       <h2>Yang menghubungi kami</h2>
-      <?= tampilkanBiodata($fieldContact, $contact) ?>
+      <?php include 'read_inc.php'; ?>
     </section>
   </main>
 
