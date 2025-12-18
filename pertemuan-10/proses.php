@@ -23,3 +23,26 @@ $arrBiodata = [
 $_SESSION["biodata"] = $arrBiodata;
 
 header("location: index.php#about");
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama = $_POST["nama"];
+    $pesan = $_POST["pesan"];
+
+    // Validasi nama
+    if (strlen($nama) < 3) {
+        echo "Nama harus minimal 3 karakter.";
+    }
+
+    // Validasi pesan
+    if (strlen($pesan) < 10) {
+        echo "Pesan harus minimal 10 karakter.";
+    }
+
+    // Jika validasi berhasil, lanjutkan proses penyimpanan data
+    if (strlen($nama) >= 3 && strlen($pesan) >= 10) {
+        // Kode untuk menyimpan data ke database
+    }
+}
+?>
+
