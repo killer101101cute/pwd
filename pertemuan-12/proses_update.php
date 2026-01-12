@@ -1,7 +1,7 @@
 <?php
 session_start();
-require _DIR_ . '/koneksi.php';
-require_once _DIR_ . '/fungsi.php';
+require __DIR__ . './koneksi.php';
+require_once __DIR__ . '/fungsi.php';
 
 #cek method form, hanya izinkan POST
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
