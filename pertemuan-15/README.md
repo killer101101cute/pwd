@@ -10,4 +10,5 @@ NIM: 2511500033<br>
 <li>menambahkan fitur form import dan proses simpan tambahan di file tambah.php</li>
 <li>menambahkan fitur click tombol kirim di form input di file proses_tambah.php</li>
 <li>menambahkan pembaca record dengan link edit dan link hapus di file tampil.php</li>
+<li>menambahkan kode di edit.php untuk proses edit</li>
 </ol>
