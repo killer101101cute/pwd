@@ -5,5 +5,6 @@ nama saya: Nabila Saskia<br>
 NIM: 2511500033<br>
 <ol>
 <li>import sql bahan praktikum pertemuan-13</li>
-<li>menambah link  delete untuk ke file proses_update.php</li>
+<li>menambah link  delete di file read.php untuk ke file proses_delete.php</li>
+<li>salin semua kode di proses_update.php ke proses_delete.php</li>
 <ol>
