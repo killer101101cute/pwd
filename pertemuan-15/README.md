@@ -9,5 +9,5 @@ NIM: 2511500033<br>
 <li>mengubah koneksi database di koneksi.php</li>
 <li>menambahkan fitur form import dan proses simpan tambahan di file tambah.php</li>
 <li>menambahkan fitur click tombol kirim di form input di file proses_tambah.php</li>
-<li></li>
+<li>menambahkan pembaca record dengan link edit dan link hapus di file tampil.php</li>
 </ol>
