@@ -7,4 +7,5 @@ NIM: 2511500033<br>
 <li>membuat tabel baru yang akan digunakan untuk menampung record biodata</li>
 <li>mengubah koneksi database di koneksi.php</li>
 <li>menambahkan fitur form import dan proses simpan tambahan di file tambah.php</li>
+<li>menambahkan fitur click tombol "kirim" di form input di file proses_tambah.php</li>
 </ol>
