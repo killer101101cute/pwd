@@ -96,7 +96,7 @@ if (!empty($errors)) {
 }
 
 #menyiapkan query INSERT dengan prepared statement
-$sql = "INSERT INTO tbl_tamu (cnama, cemail, ctanggal) VALUES (?, ?, ?)";
+$sql = "INSERT INTO tbl_pengunjung (kode, nama, alamat, tanggal, hobi, slta, kerja, ortu, pacar, mantan) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
 if (!$stmt) {
@@ -105,7 +105,7 @@ if (!$stmt) {
   redirect_ke('index.php#biodata');
 }
 #bind parameter dan eksekusi (s = string)
-mysqli_stmt_bind_param($stmt, "sss", $nama, $alamat, $tanggal);
+mysqli_stmt_bind_param($stmt, "ssssssssss", $kode, $nama, $alamat, $tanggal, $hobi, $slta, $kerja, $ortu, $pacar, $mantan);
 
 if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri tanggal sukses
   unset($_SESSION['old']);

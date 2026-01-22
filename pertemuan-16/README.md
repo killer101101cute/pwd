@@ -9,4 +9,6 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>modif proses.php untuk bersihkan input</li>
   <li>modif proses.php untuk validasi isian</li>
   <li>modif proses.php untuk old value</li>
+  <li>modif proses.php untuk insert tbl_tamu</li>
+  <li>modif proses.php untuk old value saat insert</li>
 </ol>
