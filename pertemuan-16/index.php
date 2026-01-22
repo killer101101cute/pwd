@@ -63,43 +63,53 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error'], $_SESSION['old']); #b
       <form action="proses.php" method="POST">
 
         <label for="txtKodePen"><span>Kode Pengunjung:</span>
-          <input type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required>
+          <input type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required
+            value="<?= isset($old['kodepen']) ? htmlspecialchars($old['kodepen']) : '' ?>">
         </label>
 
         <label for="txtNmPengunjung"><span>Nama Pengunjung:</span>
-          <input type="text" id="txtNmPengunjung" name="txtNmPengunjung" placeholder="Masukkan Nama Pengunjung" required>
+          <input type="text" id="txtNmPengunjung" name="txtNmPengunjung" placeholder="Masukkan Nama Pengunjung" required
+            value="<?= isset($old['nama']) ? htmlspecialchars($old['nama']) : '' ?>">
         </label>
 
         <label for="txtAlRmh"><span>Alamat Rumah:</span>
-          <input type="text" id="txtAlRmh" name="txtAlRmh" placeholder="Masukkan Alamat Rumah" required>
+          <input type="text" id="txtAlRmh" name="txtAlRmh" placeholder="Masukkan Alamat Rumah" required
+            value="<?= isset($old['alamat']) ? htmlspecialchars($old['alamat']) : '' ?>">
         </label>
 
         <label for="txtTglKunjungan"><span>Tanggal Kunjungan:</span>
-          <input type="text" id="txtTglKunjungan" name="txtTglKunjungan" placeholder="Masukkan Tanggal Kunjungan" required>
+          <input type="text" id="txtTglKunjungan" name="txtTglKunjungan" placeholder="Masukkan Tanggal Kunjungan" required
+            value="<?= isset($old['tanggal']) ? htmlspecialchars($old['tanggal']) : '' ?>">
         </label>
 
         <label for="txtHobi"><span>Hobi:</span>
-          <input type="text" id="txtHobi" name="txtHobi" placeholder="Masukkan Hobi" required>
+          <input type="text" id="txtHobi" name="txtHobi" placeholder="Masukkan Hobi" required
+            value="<?= isset($old['hobi']) ? htmlspecialchars($old['hobi']) : '' ?>">
         </label>
 
         <label for="txtAsalSMA"><span>Asal SLTA:</span>
-          <input type="text" id="txtAsalSMA" name="txtAsalSMA" placeholder="Masukkan Asal SLTA" required>
+          <input type="text" id="txtAsalSMA" name="txtAsalSMA" placeholder="Masukkan Asal SLTA" required
+            value="<?= isset($old['slta']) ? htmlspecialchars($old['slta']) : '' ?>">
         </label>
 
         <label for="txtKerja"><span>Pekerjaan:</span>
-          <input type="text" id="txtKerja" name="txtKerja" placeholder="Masukkan Pekerjaan" required>
+          <input type="text" id="txtKerja" name="txtKerja" placeholder="Masukkan Pekerjaan" required
+            value="<?= isset($old['pekerjaan']) ? htmlspecialchars($old['pekerjaan']) : '' ?>">
         </label>
 
         <label for="txtNmOrtu"><span>Nama Orang Tua:</span>
-          <input type="text" id="txtNmOrtu" name="txtNmOrtu" placeholder="Masukkan Nama Orang Tua" required>
+          <input type="text" id="txtNmOrtu" name="txtNmOrtu" placeholder="Masukkan Nama Orang Tua" required
+            value="<?= isset($old['ortu']) ? htmlspecialchars($old['ortu']) : '' ?>">
         </label>
 
         <label for="txtNmPacar"><span>Nama Pacar:</span>
-          <input type="text" id="txtNmPacar" name="txtNmPacar" placeholder="Masukkan Nama Pacar" required>
+          <input type="text" id="txtNmPacar" name="txtNmPacar" placeholder="Masukkan Nama Pacar" required
+            value="<?= isset($old['pacar']) ? htmlspecialchars($old['pacar']) : '' ?>">
         </label>
 
         <label for="txtNmMantan"><span>Nama Mantan:</span>
-          <input type="text" id="txtNmMantan" name="txtNmMantan" placeholder="Masukkan Nama Mantan" required>
+          <input type="text" id="txtNmMantan" name="txtNmMantan" placeholder="Masukkan Nama Mantan" required
+            value="<?= isset($old['mantan']) ? htmlspecialchars($old['mantan']) : '' ?>">
         </label>
 
         <button type="submit">Kirim</button>
@@ -140,8 +150,7 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error'], $_SESSION['old']); #b
 
         <label for="txtNama"><span>Nama:</span>
           <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama"
-            required autocomplete="name"
-            value="<?= isset($old['nama']) ? htmlspecialchars($old['nama']) : '' ?>">
+            autocomplete="name">
         </label>
 
         <label for="txtEmail"><span>Email:</span>
