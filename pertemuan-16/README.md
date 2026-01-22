@@ -9,7 +9,7 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>modif proses.php untuk bersihkan input</li>
   <li>modif proses.php untuk validasi isian</li>
   <li>modif proses.php untuk old value</li>
-  <li>modif proses.php untuk insert tbl_tamu</li>
+  <li>modif proses.php untuk insert tbl_pengunjung</li>
   <li>modif proses.php untuk old value saat insert</li>
   <li>hapus array biodata di proses.php</li>
   <li>modif index.php agar posisi flash dan old di atas</li>
@@ -17,4 +17,5 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>modif read.php agar membaca tbl_pengunjung</li>
   <li>modif read.php agar kolom sesuai tbl_pengunjung</li>
   <li>selesai modif read.php agar kolom sesuai tbl_pengunjung</li>
+  <li>modif proses_delete.php untuk tbl_pengunjung</li>
 </ol>
