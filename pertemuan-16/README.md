@@ -12,4 +12,5 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>modif proses.php untuk insert tbl_tamu</li>
   <li>modif proses.php untuk old value saat insert</li>
   <li>hapus array biodata di proses.php</li>
+  <li>modif index.php agar posisi flash dan old di atas</li>
 </ol>

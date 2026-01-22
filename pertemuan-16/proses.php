@@ -129,7 +129,7 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri tang
 }
 #tutup statement
 mysqli_stmt_close($stmt);
-
+/* 
 $arrBiodata = [
   "kodepen" => $_POST["txtKodePen"] ?? "",
   "nama" => $_POST["txtNmPengunjung"] ?? "",
@@ -144,4 +144,4 @@ $arrBiodata = [
 ];
 $_SESSION["biodata"] = $arrBiodata;
 
-header("location: index.php#about");
+header("location: index.php#about"); */
