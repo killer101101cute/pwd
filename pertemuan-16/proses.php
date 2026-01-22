@@ -113,10 +113,16 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri tang
   redirect_ke('index.php#biodata'); #pola PRG: kembali ke form / halaman home
 } else { #jika gagal, simpan kembali old value dan tampilkan error umum
   $_SESSION['old'] = [
+    'kodepen'  => $kodepen,
     'nama'  => $nama,
-    'email' => $alamat,
+    'alamat' => $alamat,
     'tanggal' => $tanggal,
     'hobi' => $hobi,
+    'slta'  => $slta,
+    'pekerjaan'  => $pekerjaan,
+    'ortu' => $ortu,
+    'pacar' => $pacar,
+    'mantan' => $mantan,
   ];
   $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
   redirect_ke('index.php#biodata');
