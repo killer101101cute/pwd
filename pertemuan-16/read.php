@@ -3,7 +3,7 @@
   require 'koneksi.php';
   require 'fungsi.php';
 
-  $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
+  $sql = "SELECT * FROM tbl_pengunjung ORDER BY kode DESC";
   $q = mysqli_query($conn, $sql);
   if (!$q) {
     die("Query error: " . mysqli_error($conn));
@@ -35,25 +35,25 @@
   <tr>
     <th>No</th>
     <th>Aksi</th>
-    <th>ID</th>
+    <th>Kode</th>
     <th>Nama</th>
     <th>Email</th>
     <th>Pesan</th>
-    <th>Created At</th>
+    <th>Tanggal Kunjungan</th>
   </tr>
   <?php $i = 1; ?>
   <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
       <td><?= $i++ ?></td>
       <td>
-        <a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a>
-        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['cnama']); ?>?')" href="proses_delete.php?cid=<?= (int)$row['cid']; ?>">Delete</a>
+        <a href="edit.php?kode=<?= (int)$row['kode']; ?>">Edit</a>
+        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['nama']); ?>?')" href="proses_delete.php?kode=<?= (int)$row['kode']; ?>">Delete</a>
       </td>
-      <td><?= $row['cid']; ?></td>
-      <td><?= htmlspecialchars($row['cnama']); ?></td>
-      <td><?= htmlspecialchars($row['cemail']); ?></td>
-      <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
-      <td><?= formatTanggal(htmlspecialchars($row['dcreated_at'])); ?></td>
+      <td><?= $row['kode']; ?></td>
+      <td><?= htmlspecialchars($row['nama']); ?></td>
+      <td><?= htmlspecialchars($row['alamat']); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['hobi'])); ?></td>
+      <td><?= formatTanggal(htmlspecialchars($row['tanggal'])); ?></td>
     </tr>
   <?php endwhile; ?>
 </table>
