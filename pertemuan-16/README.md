@@ -16,4 +16,5 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>modif index.php agar value memiliki nilai old</li>
   <li>modif read.php agar membaca tbl_pengunjung</li>
   <li>modif read.php agar kolom sesuai tbl_pengunjung</li>
+  <li>selesai modif read.php agar kolom sesuai tbl_pengunjung</li>
 </ol>

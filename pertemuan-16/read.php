@@ -37,8 +37,13 @@
     <th>Aksi</th>
     <th>Kode</th>
     <th>Nama</th>
-    <th>Email</th>
-    <th>Pesan</th>
+    <th>Alamat</th>
+    <th>Hobi</th>
+    <th>Asal SLTA</th>
+    <th>Pekerjaan</th>
+    <th>Nama Ortu</th>
+    <th>Nama Pasangan</th>
+    <th>Nama Mantan</th>
     <th>Tanggal Kunjungan</th>
   </tr>
   <?php $i = 1; ?>
@@ -53,6 +58,11 @@
       <td><?= htmlspecialchars($row['nama']); ?></td>
       <td><?= htmlspecialchars($row['alamat']); ?></td>
       <td><?= nl2br(htmlspecialchars($row['hobi'])); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['slta'])); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['kerja'])); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['ortu'])); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['pacar'])); ?></td>
+      <td><?= nl2br(htmlspecialchars($row['mantan'])); ?></td>
       <td><?= formatTanggal(htmlspecialchars($row['tanggal'])); ?></td>
     </tr>
   <?php endwhile; ?>
