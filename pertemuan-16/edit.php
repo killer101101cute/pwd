@@ -9,9 +9,10 @@
     'options' => ['min_range' => 1] artinya kode harus ≥ 1 
     (bukan 0, bahkan bukan negatif, bukan huruf, bukan HTML).
   */
-  $kode = filter_input(INPUT_GET, 'kode', FILTER_VALIDATE_INT, [
+  /* $kode = filter_input(INPUT_GET, 'kode', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1]
-  ]);
+  ]); */
+  $kode = filter_input(INPUT_GET, 'kode', FILTER_SANITIZE_STRING);
   /*
     Skrip di atas cara penulisan lamanya adalah:
     $kode = $_GET['kode'] ?? '';

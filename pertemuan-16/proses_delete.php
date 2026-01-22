@@ -4,9 +4,11 @@
   require_once __DIR__ . '/fungsi.php';
 
   #validasi kode wajib angka dan > 0
-  $kode = filter_input(INPUT_GET, 'kode', FILTER_VALIDATE_INT, [
+  /* $kode = filter_input(INPUT_GET, 'kode', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1]
-  ]);
+  ]); */
+  $kode = filter_input(INPUT_GET, 'kode', FILTER_SANITIZE_STRING);
+
 
   if (!$kode) {
     $_SESSION['flash_error'] = 'kode Tidak Valid.';

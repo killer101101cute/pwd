@@ -51,8 +51,8 @@
     <tr>
       <td><?= $i++ ?></td>
       <td>
-        <a href="edit.php?kode=<?= (int)$row['kode']; ?>">Edit</a>
-        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['nama']); ?>?')" href="proses_delete.php?kode=<?= (int)$row['kode']; ?>">Delete</a>
+        <a href="edit.php?kode=<?= $row['kode']; ?>">Edit</a>
+        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['nama']); ?>?')" href="proses_delete.php?kode=<?= $row['kode']; ?>">Delete</a>
       </td>
       <td><?= $row['kode']; ?></td>
       <td><?= htmlspecialchars($row['nama']); ?></td>
