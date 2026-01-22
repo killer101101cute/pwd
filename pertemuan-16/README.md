@@ -14,4 +14,5 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>hapus array biodata di proses.php</li>
   <li>modif index.php agar posisi flash dan old di atas</li>
   <li>modif index.php agar value memiliki nilai old</li>
+  <li>modif read.php agar membaca tbl_pengunjung</li>
 </ol>
