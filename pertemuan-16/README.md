@@ -19,4 +19,5 @@ hari ini 22.JAN.2026 10:00 saya UAS PWD:<br>
   <li>selesai modif read.php agar kolom sesuai tbl_pengunjung</li>
   <li>modif proses_delete.php untuk tbl_pengunjung</li>
   <li>modif edit.php untuk biodata pengunjung</li>
+  <li>modif edit.php untuk value dari tabel tbl_pengunjung</li>
 </ol>

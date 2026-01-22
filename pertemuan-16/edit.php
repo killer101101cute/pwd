@@ -4,18 +4,18 @@
   require 'fungsi.php';
 
   /*
-    Ambil nilai cid dari GET dan lakukan validasi untuk 
-    mengecek cid harus angka dan lebih besar dari 0 (> 0).
-    'options' => ['min_range' => 1] artinya cid harus ≥ 1 
+    Ambil nilai kode dari GET dan lakukan validasi untuk 
+    mengecek kode harus angka dan lebih besar dari 0 (> 0).
+    'options' => ['min_range' => 1] artinya kode harus ≥ 1 
     (bukan 0, bahkan bukan negatif, bukan huruf, bukan HTML).
   */
-  $cid = filter_input(INPUT_GET, 'cid', FILTER_VALIDATE_INT, [
+  $kode = filter_input(INPUT_GET, 'kode', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1]
   ]);
   /*
     Skrip di atas cara penulisan lamanya adalah:
-    $cid = $_GET['cid'] ?? '';
-    $cid = (int)$cid;
+    $kode = $_GET['kode'] ?? '';
+    $kode = (int)$kode;
 
     Cara lama seperti di atas akan mengambil data mentah 
     kemudian validasi dilakukan secara terpisah, sehingga 
@@ -24,12 +24,12 @@
   */
 
   /*
-    Cek apakah $cid bernilai valid:
-    Kalau $cid tidak valid, maka jangan lanjutkan proses, 
+    Cek apakah $kode bernilai valid:
+    Kalau $kode tidak valid, maka jangan lanjutkan proses, 
     kembalikan pengguna ke halaman awal (read.php) sembari 
     mengirim penanda error.
   */
-  if (!$cid) {
+  if (!$kode) {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
     redirect_ke('read.php');
   }
@@ -38,14 +38,14 @@
     Ambil data lama dari DB menggunakan prepared statement, 
     jika ada kesalahan, tampilkan penanda error.
   */
-  $stmt = mysqli_prepare($conn, "SELECT cid, cnama, cemail, cpesan 
-                                    FROM tbl_tamu WHERE cid = ? LIMIT 1");
+  $stmt = mysqli_prepare($conn, "SELECT * 
+                                    FROM tbl_tamu WHERE kode = ? LIMIT 1");
   if (!$stmt) {
     $_SESSION['flash_error'] = 'Query tidak benar.';
     redirect_ke('read.php');
   }
 
-  mysqli_stmt_bind_param($stmt, "i", $cid);
+  mysqli_stmt_bind_param($stmt, "s", $kode);
   mysqli_stmt_execute($stmt);
   $res = mysqli_stmt_get_result($stmt);
   $row = mysqli_fetch_assoc($res);
@@ -57,18 +57,32 @@
   }
 
   #Nilai awal (prefill form)
-  $nama  = $row['cnama'] ?? '';
-  $email = $row['cemail'] ?? '';
-  $pesan = $row['cpesan'] ?? '';
+  $kodepen  = $row['kode'] ?? '';
+  $nama  = $row['nama'] ?? '';
+  $alamat = $row['alamat'] ?? '';
+  $hobi = $row['hobi'] ?? '';
+  $slta = $row['slta'] ?? '';
+  $pekerjaan  = $row['kerja'] ?? '';
+  $ortu  = $row['ortu'] ?? '';
+  $pacar = $row['pacar'] ?? '';
+  $mantan = $row['mantan'] ?? '';
+  $tanggal = $row['tanggal'] ?? '';
 
   #Ambil error dan nilai old input kalau ada
   $flash_error = $_SESSION['flash_error'] ?? '';
   $old = $_SESSION['old'] ?? [];
   unset($_SESSION['flash_error'], $_SESSION['old']);
   if (!empty($old)) {
-    $nama  = $old['nama'] ?? $nama;
-    $email = $old['email'] ?? $email;
-    $pesan = $old['pesan'] ?? $pesan;
+    $kodepen  = $old['kodepen'] ?? $kodepen;
+    $nama = $old['nama'] ?? $nama;
+    $alamat = $old['alamat'] ?? $alamat;
+    $tanggal  = $old['tanggal'] ?? $tanggal;
+    $hobi = $old['hobi'] ?? $hobi;
+    $slta = $old['slta'] ?? $slta;
+    $pekerjaan  = $old['pekerjaan'] ?? $pekerjaan;
+    $ortu = $old['ortu'] ?? $ortu;
+    $pacar = $old['pacar'] ?? $pacar;
+    $mantan = $old['mantan'] ?? $mantan;
   }
 ?>
 
@@ -106,29 +120,57 @@
         <?php endif; ?>
         <form action="proses_update.php" method="POST">
 
-          <input type="text" name="cid" value="<?= (int)$cid; ?>">
+          <input type="text" name="kode" value="<?= (int)$kode; ?>">
 
-          <label for="txtNama"><span>Nama:</span>
-            <input type="text" id="txtNama" name="txtNamaEd" 
-              placeholder="Masukkan nama" required autocomplete="name"
+          
+          <label for="txtKodePen"><span>Kode Pengunjung:</span>
+            <input readonly type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required
+              value="<?= !empty($kodepen) ? $kodepen : '' ?>">
+          </label>
+
+          <label for="txtNmPengunjung"><span>Nama Pengunjung:</span>
+            <input type="text" id="txtNmPengunjung" name="txtNmPengunjung" placeholder="Masukkan Nama Pengunjung" required
               value="<?= !empty($nama) ? $nama : '' ?>">
           </label>
 
-          <label for="txtEmail"><span>Email:</span>
-            <input type="email" id="txtEmail" name="txtEmailEd" 
-              placeholder="Masukkan email" required autocomplete="email"
-              value="<?= !empty($email) ? $email : '' ?>">
+          <label for="txtAlRmh"><span>Alamat Rumah:</span>
+            <input type="text" id="txtAlRmh" name="txtAlRmh" placeholder="Masukkan Alamat Rumah" required
+              value="<?= !empty($alamat) ? $alamat : '' ?>">
           </label>
 
-          <label for="txtPesan"><span>Pesan Anda:</span>
-            <textarea id="txtPesan" name="txtPesanEd" rows="4" 
-              placeholder="Tulis pesan anda..." 
-              required><?= !empty($pesan) ? $pesan : '' ?></textarea>
+          <label for="txtTglKunjungan"><span>Tanggal Kunjungan:</span>
+            <input type="text" id="txtTglKunjungan" name="txtTglKunjungan" placeholder="Masukkan Tanggal Kunjungan" required
+              value="<?= !empty($tanggal) ? $tanggal : '' ?>">
           </label>
 
-          <label for="txtCaptcha"><span>Captcha 2 x 3 = ?</span>
-            <input type="number" id="txtCaptcha" name="txtCaptcha" 
-              placeholder="Jawab Pertanyaan..." required>
+          <label for="txtHobi"><span>Hobi:</span>
+            <input type="text" id="txtHobi" name="txtHobi" placeholder="Masukkan Hobi" required
+              value="<?= !empty($hobi) ? $hobi : '' ?>">
+          </label>
+
+          <label for="txtAsalSMA"><span>Asal SLTA:</span>
+            <input type="text" id="txtAsalSMA" name="txtAsalSMA" placeholder="Masukkan Asal SLTA" required
+              value="<?= !empty($slta) ? $slta : '' ?>">
+          </label>
+
+          <label for="txtKerja"><span>Pekerjaan:</span>
+            <input type="text" id="txtKerja" name="txtKerja" placeholder="Masukkan Pekerjaan" required
+              value="<?= !empty($pekerjaan) ? $pekerjaan : '' ?>">
+          </label>
+
+          <label for="txtNmOrtu"><span>Nama Orang Tua:</span>
+            <input type="text" id="txtNmOrtu" name="txtNmOrtu" placeholder="Masukkan Nama Orang Tua" required
+              value="<?= !empty($ortu) ? $ortu : '' ?>">
+          </label>
+
+          <label for="txtNmPacar"><span>Nama Pacar:</span>
+            <input type="text" id="txtNmPacar" name="txtNmPacar" placeholder="Masukkan Nama Pacar" required
+              value="<?= !empty($pacar) ? $pacar : '' ?>">
+          </label>
+
+          <label for="txtNmMantan"><span>Nama Mantan:</span>
+            <input type="text" id="txtNmMantan" name="txtNmMantan" placeholder="Masukkan Nama Mantan" required
+              value="<?= !empty($mantan) ? $mantan : '' ?>">
           </label>
 
           <button type="submit">Kirim</button>
