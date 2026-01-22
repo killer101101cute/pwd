@@ -126,7 +126,7 @@
           
           <label for="txtKodePen"><span>Kode Pengunjung:</span>
             <input disabled readonly type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required
-              value="<?= !empty($kodepen) ? $kodepen : '' ?>">
+              value="<?= !empty($kode) ? $kode : '' ?>">
           </label>
 
           <label for="txtNmPengunjung"><span>Nama Pengunjung:</span>

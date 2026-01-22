@@ -13,7 +13,7 @@
   /* $kode = filter_input(INPUT_POST, 'kode', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1]
   ]); */
-  $kode = filter_input(INPUT_GET, 'kode', FILTER_SANITIZE_STRING);
+  $kode = filter_input(INPUT_POST, 'kode', FILTER_SANITIZE_STRING);
 
 
   if (!$kode) {
@@ -21,6 +21,7 @@
     redirect_ke('edit.php?kode='. $kode);
   }
 
+  
   #ambil dan bersihkan (sanitasi) nilai dari form
   $kodepen  = bersihkan($_POST['txtKodePen']  ?? '');
   $nama  = bersihkan($_POST['txtNmPengunjung']  ?? '');
@@ -35,10 +36,6 @@
 
   #Validasi sederhana
   $errors = []; #ini array untuk menampung semua error yang ada
-
-  if ($kodepen === '') {
-    $errors[] = 'Kode Pengunjung wajib diisi.';
-  }
 
   if ($nama === '') {
     $errors[] = 'Nama Pengunjung wajib diisi.';
