@@ -40,7 +40,7 @@
     jika ada kesalahan, tampilkan penanda error.
   */
   $stmt = mysqli_prepare($conn, "SELECT * 
-                                    FROM tbl_tamu WHERE kode = ? LIMIT 1");
+                                    FROM tbl_pengunjung WHERE kode = ? LIMIT 1");
   if (!$stmt) {
     $_SESSION['flash_error'] = 'Query tidak benar.';
     redirect_ke('read.php');
@@ -121,11 +121,11 @@
         <?php endif; ?>
         <form action="proses_update.php" method="POST">
 
-          <input type="text" name="kode" value="<?= (int)$kode; ?>">
+          <input type="text" name="kode" value="<?= $kode; ?>">
 
           
           <label for="txtKodePen"><span>Kode Pengunjung:</span>
-            <input readonly type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required
+            <input disabled readonly type="text" id="txtKodePen" name="txtKodePen" placeholder="Masukkan Kode Pengunjung" required
               value="<?= !empty($kodepen) ? $kodepen : '' ?>">
           </label>
 
