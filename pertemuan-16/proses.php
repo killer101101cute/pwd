@@ -85,21 +85,12 @@ if (!empty($errors)) {
     'alamat' => $alamat,
     'tanggal' => $tanggal,
     'hobi' => $hobi,
-    'slta'  => $kodepen,
-    'pekerjaan'  => $nama,
-    'ortu' => $alamat,
-    'pacar' => $tanggal,
-    'mantan' => $hobi,
+    'slta'  => $slta,
+    'pekerjaan'  => $pekerjaan,
+    'ortu' => $ortu,
+    'pacar' => $pacar,
+    'mantan' => $mantan,
   ];
-
-
-  
-$  = bersihkan($_POST['txtAsalSMA']  ?? '');
-$  = bersihkan($_POST['txtKerja']  ?? '');
-$ = bersihkan($_POST['txtNmOrtu'] ?? '');
-$ = bersihkan($_POST['txtNmPacar'] ?? '');
-$ = bersihkan($_POST['txtNmMantan'] ?? '');
-
   $_SESSION['flash_error'] = implode('<br>', $errors);
   redirect_ke('index.php#biodata');
 }
