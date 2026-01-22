@@ -27,7 +27,7 @@
   }
 
   #bind parameter dan eksekusi (s = string, i = integer)
-  mysqli_stmt_bind_param($stmt, "i", $kode);
+  mysqli_stmt_bind_param($stmt, "s", $kode);
 
   if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value
     /*
